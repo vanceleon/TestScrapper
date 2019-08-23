@@ -1,7 +1,7 @@
 const Nightmare = require('nightmare');
 const cheerio = require('cheerio');
 
-const nightmare = Nightmare({show: true});
+const nightmare = Nightmare({show: false});
 const url = 'https://www.flipkart.com';
 
 
@@ -28,11 +28,13 @@ let getData = html => {
   $('div._1HmYoV._35HD7C:nth-child(2) div.bhgxx2.col-12-12').each((row, raw_element) => {
     $(raw_element).find('div div div').each((i, elem) => {
       let title = $(elem).find('div div a:nth-child(2)').text();
+      let price = $(elem).find('div div div div').text();
       let link = $(elem).find('div div a:nth-child(2)').attr('href');
       if (title) {
         data.push({
           title : title,
-          link : link
+          link : link,
+          price: price,
         });
       }
     });
