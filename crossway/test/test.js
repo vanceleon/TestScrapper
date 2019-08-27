@@ -51,8 +51,8 @@ describe('Login Page', function() {
         .goto(
           'https://my.crossway.org/cas/login/?service=https://www.crossway.org/cas/login/'
         )
-        .type(`input#id_email`, '') //username
-        .type('input#id_password', '')//password
+        .type(`input#id_email`, 'vanceleon44@gmail.com') //username
+        .type('input#id_password', 'Word@652!')//password
         .click("input[value='Sign in']")
         .wait(2000)
         .click("a[href='/books/']")
